@@ -625,38 +625,45 @@ document.getElementById('generateRoute').addEventListener('click', () => {
   }
 
   const crawlType = document.getElementById('durationFilter').value;
-let minDuration = 0, maxDuration = Infinity;
+  let minDuration = 0, maxDuration = Infinity;
 
-if (crawlType === 'quick') {
-  maxDuration = 1.5;
-} else if (crawlType === 'classic') {
-  minDuration = 1.5;
-  maxDuration = 3;
-} else if (crawlType === 'long') {
-  minDuration = 3;
-}
+  if (crawlType === 'quick') {
+    maxDuration = 1.5;
+  } else if (crawlType === 'classic') {
+    minDuration = 1.5;
+    maxDuration = 3;
+  } else if (crawlType === 'long') {
+    minDuration = 3;
+  }
 
-const candidates = allMarkers.filter(marker =>
-  center.distanceTo(marker.getLatLng()) < 1000 &&
-  isOpenNow(marker.options.hours || [])
-);
+  const vibe = document.getElementById('vibeFilter').value.toLowerCase();
+  const vibeVec = getVibeVector(vibe);
+
+  const candidates = allMarkers
+    .filter(marker =>
+      center.distanceTo(marker.getLatLng()) < 1000 &&
+      isOpenNow(marker.options.hours || [])
+    )
+    .map(m => ({
+      name: m.name,
+      vibe: m.vibe,
+      lat: m.getLatLng().lat,
+      lon: m.getLatLng().lng,
+      duration: m.duration || 0,
+      hours: m.options.hours || [],
+      link: m.options.link || '#'
+    }));
 
   if (candidates.length < 1) {
     alert('No places found in this neighborhood.');
     return;
   }
 
-const vibe = document.getElementById('vibeFilter').value.toLowerCase();
-const vibeVec = getVibeVector(vibe);
-const filteredCandidates = candidates.map(m => ({
-  ...m,
-  lat: m.getLatLng().lat,
-  lon: m.getLatLng().lng
-})).filter(c => {
-  const vec = getVibeVector(c.vibe);
-  const overlap = vibeVec.reduce((acc, v, i) => acc + (v && vec[i] ? 1 : 0), 0);
-  return overlap > 0 || !vibe;  // Allow fallback matches
-});
+  const filtered = candidates.filter(c => {
+    const vec = getVibeVector(c.vibe);
+    const overlap = vibeVec.reduce((acc, v, i) => acc + (v && vec[i] ? 1 : 0), 0);
+    return overlap > 0 || !vibe;  // liberal filtering
+  });
 
 
 const start = filteredCandidates[Math.floor(Math.random() * filteredCandidates.length)];
