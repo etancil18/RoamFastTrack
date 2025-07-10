@@ -562,40 +562,44 @@ function getVibeVector(vibe) {
   let currentDuration = start.duration || 0;
 
   while (crawl.length < maxStops && remaining.length > 0) {
-    const last = crawl[crawl.length - 1];
-    let best = null;
-    let bestScore = -Infinity;
+  const last = crawl[crawl.length - 1];
+  let best = null;
+  let bestScore = -Infinity;
 
-    const maxDist = crawl.length === 1 ? 700 : 500;
+  const maxDist = crawl.length === 1 ? 700 : 500;
 
-    for (const event of remaining) {
-      if (!event.hours || !isOpenNow(event.hours)) continue;
-      const nextDuration = currentDuration + (event.duration || 0);
-      if (nextDuration > maxDuration) continue;
+  for (const event of remaining) {
+    if (!event.hours || !isOpenNow(event.hours)) continue;
 
-      const dist = distanceBetween(last, event);
-      if (dist > maxDist || dist < 30) continue;
+    const nextDuration = currentDuration + (event.duration || 0);
+    if (nextDuration > maxDuration) continue;
 
-      const currVibeVec = getVibeVector(event.vibe || '');
-      const vibeDiff = 1 - cosineSimilarity(getVibeVector(last.vibe || ''), currVibeVec);
-      const seedSim = cosineSimilarity(vibeVector, currVibeVec);
-      const score = 0.5 * vibeDiff + 0.5 * seedSim;
+    const dist = distanceBetween(last, event);
+    if (dist > maxDist || dist < 30) continue;
 
-      if (score > bestScore) {
-        best = event;
-        bestScore = score;
-      }
-    }
+    const currVibeVec = getVibeVector(event.vibe || '');
+    const lastVec = getVibeVector(last.vibe || '');
+    const vibeSimToLast = cosineSimilarity(lastVec, currVibeVec);
+    const vibeSimToSeed = cosineSimilarity(vibeVector, currVibeVec);
+    const vibeScore = 0.4 * vibeSimToSeed + 0.6 * vibeSimToLast;
 
-    if (best) {
-      crawl.push(best);
-      currentDuration += best.duration || 0;
-      const index = remaining.findIndex(e => e.name === best.name);
-      if (index > -1) remaining.splice(index, 1);
-    } else {
-      break;
+    const score = vibeScore;
+
+    if (score > bestScore) {
+      best = event;
+      bestScore = score;
     }
   }
+
+  if (best) {
+    crawl.push(best);
+    currentDuration += best.duration || 0;
+    const index = remaining.findIndex(e => e.name === best.name);
+    if (index > -1) remaining.splice(index, 1);
+  } else {
+    break;
+  }
+}
 
   return crawl;
 }
