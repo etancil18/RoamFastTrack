@@ -517,6 +517,18 @@ const neighborhoodCenters = {
   "williamsburg": L.latLng(40.7081, -73.9571)
 };
 
+function getVibeVector(vibe) {
+  const baseVibes = ['jazz', 'artsy', 'coffee', 'hip', 'date night', 'nightlife', 'hidden gem', 'wine', 'rooftop'];
+  const vec = new Array(baseVibes.length).fill(0);
+  vibe = (vibe || '').toLowerCase();
+
+  baseVibes.forEach((v, i) => {
+    if (vibe.includes(v)) vec[i] = 1;
+  });
+
+  return vec;
+}
+  
 document.getElementById('generateRoute').addEventListener('click', () => {
   const neighborhood = document.getElementById('neighborhood-input').value.toLowerCase();
   if (!neighborhood) {
@@ -555,19 +567,24 @@ const candidates = allMarkers.filter(marker =>
   let totalDuration = 0;
 const crawlPoints = [];
 
-for (let marker of candidates.sort(() => 0.5 - Math.random())) {
-  const dur = marker.duration || 0;
-  if (dur === 0 || crawlPoints.includes(marker)) continue;
-  if (totalDuration + dur > maxDuration) break;
-  totalDuration += dur;
-  crawlPoints.push(marker);
-  if (totalDuration >= minDuration) break;
-}
+const vibe = document.getElementById('vibeFilter').value.toLowerCase();
+const vibeVec = getVibeVector(vibe);
+const filteredCandidates = candidates.filter(c => {
+  return vibe ? getVibeVector(c.vibe).some((v, i) => vibeVec[i] && v) : true;
+});
 
-if (crawlPoints.length < 2) {
-  alert('Not enough places to build a crawl within this duration.');
+const start = filteredCandidates[Math.floor(Math.random() * filteredCandidates.length)];
+if (!start) {
+  alert('No valid starting point found.');
   return;
 }
+
+const crawlPoints = buildCrawlPath(start, filteredCandidates, getVibeVector, vibeVec, 5, crawlType);
+if (crawlPoints.length < 2) {
+  alert('Not enough crawl-worthy spots found.');
+  return;
+}
+
 
 selectedPoints = [];
 resetAllEnlargedMarkers();
