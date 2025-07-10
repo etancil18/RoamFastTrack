@@ -596,6 +596,7 @@ function buildCrawlPath(start, events, getVibeVector, vibeVector, maxStops = 5, 
   return crawl;
 }
 
+
 // Event listener to generate crawl from UI selections
 document.getElementById('generateRoute').addEventListener('click', () => {
   const neighborhood = document.getElementById('neighborhood-input').value.toLowerCase();
@@ -646,50 +647,44 @@ document.getElementById('generateRoute').addEventListener('click', () => {
     return;
   }
 
-  // Route handling, marker updates and UI logic continues here...
-});
+  selectedPoints = [];
+  resetAllEnlargedMarkers();
+  crawlPoints.forEach(p => {
+    selectedPoints.push(L.latLng(p.lat, p.lon));
+    enlargeMarker(findMarkerByLatLng({ lat: p.lat, lng: p.lon }));
+  });
+  updateRoute();
+  map.fitBounds(L.featureGroup(crawlPoints.map(p => L.marker([p.lat, p.lon]))).getBounds());
 
+  const details = document.getElementById('details');
+  const shareLink = generateShareURL(selectedPoints);
+  details.innerHTML = `<strong>Your Mini Crawl:</strong><ul>$
+    {crawlPoints.map((m, i) => `<li>${i + 1}. <a href="${m.link}" target="_blank">${m.name}</a></li>`).join('')}
+  </ul>
+  <button id="exportGooglePopup">Export Route to Google Maps</button>
+  <button id="copyLinkBtn">Copy Shareable Link</button>
+  <input id="shareLinkInput" type="text" readonly value="${shareLink}" style="width:100%; margin-top:5px;" />
+  <a id="smsShare" href="sms:?body=Check out this crawl: ${encodeURIComponent(shareLink)}" target="_blank">📲 Text This Crawl</a>
+  <button id="closeDetails">Close</button>`;
 
-
-selectedPoints = [];
-resetAllEnlargedMarkers();
-
-crawlPoints.forEach(m => {
-  selectedPoints.push(m.getLatLng());
-  enlargeMarker(m);
-});
-
-updateRoute();
-map.fitBounds(L.featureGroup(crawlPoints).getBounds());
-
-const details = document.getElementById('details');
-const shareLink = generateShareURL(selectedPoints);
-
-details.innerHTML = `<strong>Your Mini Crawl:</strong><ul>${
-  crawlPoints.map(m => `<li>${m.name}</li>`).join('')
-}</ul>
-<button id="exportGooglePopup">Export Route to Google Maps</button>
-<button id="copyLinkBtn">Copy Shareable Link</button>
-<input id="shareLinkInput" type="text" readonly value="${shareLink}" style="width:100%; margin-top:5px;" />
-<a id="smsShare" href="sms:?body=Check out this crawl: ${encodeURIComponent(shareLink)}" target="_blank">📲 Text This Crawl</a>
-<button id="closeDetails">Close</button>`;
-
-details.style.display = 'block';
-
+  details.style.display = 'block';
 
   document.getElementById('exportGooglePopup').addEventListener('click', () => {
-    const baseUrl = "https://www.google.com/maps/dir/";
     const path = selectedPoints.map(p => `${p.lat},${p.lng}`).join('/');
-    window.open(baseUrl + path, '_blank');
+    window.open(`https://www.google.com/maps/dir/${path}`, '_blank');
+  });
+
+  document.getElementById('copyLinkBtn').addEventListener('click', () => {
+    const input = document.getElementById('shareLinkInput');
+    input.select();
+    document.execCommand('copy');
+    alert('Link copied to clipboard!');
   });
 
   document.getElementById('closeDetails').addEventListener('click', () => {
     details.style.display = 'none';
   });
 });
-
-
-
 
 
 function addPointToRoute(latlng) {
