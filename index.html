@@ -519,14 +519,11 @@ const neighborhoodCenters = {
 
 function getVibeVector(vibe) {
   const baseVibes = ['jazz', 'artsy', 'coffee', 'hip', 'date night', 'nightlife', 'hidden gem', 'wine', 'rooftop'];
-  const vibeMap = new Map(baseVibes.map((v, i) => [v, i]));
   const vec = new Array(baseVibes.length).fill(0);
-  const tokens = (vibe || '').toLowerCase().split(/[^a-z]+/);
-
-  tokens.forEach(token => {
-    if (vibeMap.has(token)) {
-      vec[vibeMap.get(token)] = 1;
-    }
+  if (!vibe) return vec;
+  const vibeStr = vibe.toLowerCase();
+  baseVibes.forEach((v, i) => {
+    if (vibeStr.includes(v)) vec[i] = 1;
   });
   return vec;
 }
@@ -534,7 +531,7 @@ function getVibeVector(vibe) {
 // Utility: Compute distance in meters between two lat/lon points
 function getDistanceMeters(a, b) {
   const toRad = deg => deg * (Math.PI / 180);
-  const R = 6371e3; // Earth radius in meters
+  const R = 6371e3;
   const dLat = toRad(b.lat - a.lat);
   const dLon = toRad(b.lon - a.lon);
   const lat1 = toRad(a.lat);
@@ -549,20 +546,14 @@ function cosineSimilarity(a, b) {
   const dot = a.reduce((sum, val, i) => sum + val * b[i], 0);
   const normA = Math.sqrt(a.reduce((sum, val) => sum + val * val, 0));
   const normB = Math.sqrt(b.reduce((sum, val) => sum + val * val, 0));
-  if (normA === 0 || normB === 0) return 0;
-  return dot / (normA * normB);
+  return normA && normB ? dot / (normA * normB) : 0;
 }
 
 // Core: Generate optimized crawl path
 function buildCrawlPath(start, events, getVibeVector, vibeVector, maxStops = 5, crawlType = 'classic') {
   const crawl = [start];
   const remaining = events.filter(e => e.name !== start.name && e.hours && isOpenNow(e.hours));
-
-  const durationLimits = {
-    quick: 1.5,
-    classic: 3,
-    long: 5
-  };
+  const durationLimits = { quick: 1.5, classic: 3, long: 5 };
   const maxDuration = durationLimits[crawlType] || 5;
   let currentDuration = start.duration || 0;
 
@@ -585,8 +576,8 @@ function buildCrawlPath(start, events, getVibeVector, vibeVector, maxStops = 5, 
       const vibeSimToLast = cosineSimilarity(lastVec, currVibeVec);
       const vibeSimToSeed = cosineSimilarity(vibeVector, currVibeVec);
       const vibeScore = 0.4 * vibeSimToSeed + 0.6 * vibeSimToLast;
+      const score = crawl.length === 1 ? 1 : vibeScore;
 
-      const score = vibeScore;
       if (score > bestScore) {
         best = event;
         bestScore = score;
@@ -608,38 +599,30 @@ function buildCrawlPath(start, events, getVibeVector, vibeVector, maxStops = 5, 
 // Event listener to generate crawl from UI selections
 document.getElementById('generateRoute').addEventListener('click', () => {
   const neighborhood = document.getElementById('neighborhood-input').value.toLowerCase();
-  if (!neighborhood) {
-    alert('Please select a neighborhood.');
-    return;
-  }
   const center = neighborhoodCenters[neighborhood];
-  if (!center) {
-    alert('Neighborhood center not found.');
+  if (!neighborhood || !center) {
+    alert('Please select a valid neighborhood.');
     return;
   }
 
   const crawlType = document.getElementById('durationFilter').value;
-  let minDuration = 0, maxDuration = Infinity;
-  if (crawlType === 'quick') maxDuration = 1.5;
-  else if (crawlType === 'classic') { minDuration = 1.5; maxDuration = 3; }
-  else if (crawlType === 'long') minDuration = 3;
-
   const vibe = document.getElementById('vibeFilter').value.toLowerCase();
   const vibeVec = getVibeVector(vibe);
 
-  const candidates = allMarkers
-    .filter(marker => center.distanceTo(marker.getLatLng()) < 1000 && isOpenNow(marker.options.hours || []))
-    .map(m => ({
-      name: m.name,
-      vibe: m.vibe,
-      lat: m.getLatLng().lat,
-      lon: m.getLatLng().lng,
-      duration: m.duration || 0,
-      hours: m.options.hours || [],
-      link: m.options.link || '#'
-    }));
+  const candidates = allMarkers.filter(marker => {
+    const markerLatLng = marker.getLatLng();
+    return center.distanceTo(markerLatLng) < 1000 && isOpenNow(marker.options.hours || []);
+  }).map(m => ({
+    name: m.name,
+    vibe: m.vibe,
+    lat: m.getLatLng().lat,
+    lon: m.getLatLng().lng,
+    duration: m.duration || 0,
+    hours: m.options.hours || [],
+    link: m.options.link || '#'
+  }));
 
-  if (candidates.length < 1) {
+  if (!candidates.length) {
     alert('No places found in this neighborhood.');
     return;
   }
@@ -650,18 +633,14 @@ document.getElementById('generateRoute').addEventListener('click', () => {
     return overlap > 0 || !vibe;
   });
 
-  if (filtered.length === 0) {
+  if (!filtered.length) {
     alert('No matching venues found after vibe filtering.');
     return;
   }
 
   const start = filtered[Math.floor(Math.random() * filtered.length)];
-  if (!start) {
-    alert('No valid starting point found.');
-    return;
-  }
-
   const crawlPoints = buildCrawlPath(start, filtered, getVibeVector, vibeVec, 5, crawlType);
+
   if (crawlPoints.length < 2) {
     alert('Not enough crawl-worthy spots found.');
     return;
