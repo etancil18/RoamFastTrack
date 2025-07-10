@@ -579,7 +579,7 @@ function getVibeVector(vibe) {
 
     let score = 0;
 
-    if (crawl.length > 1) {
+    if (crawl.length >= 1) {
       const currVibeVec = getVibeVector(event.vibe || '');
       const lastVec = getVibeVector(last.vibe || '');
       const vibeSimToLast = cosineSimilarity(lastVec, currVibeVec);
