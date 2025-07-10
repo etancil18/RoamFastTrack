@@ -577,13 +577,19 @@ function getVibeVector(vibe) {
     const dist = distanceBetween(last, event);
     if (dist > maxDist || dist < 30) continue;
 
-    const currVibeVec = getVibeVector(event.vibe || '');
-    const lastVec = getVibeVector(last.vibe || '');
-    const vibeSimToLast = cosineSimilarity(lastVec, currVibeVec);
-    const vibeSimToSeed = cosineSimilarity(vibeVector, currVibeVec);
-    const vibeScore = 0.4 * vibeSimToSeed + 0.6 * vibeSimToLast;
+    let score = 0;
 
-    const score = vibeScore;
+    if (crawl.length > 1) {
+      const currVibeVec = getVibeVector(event.vibe || '');
+      const lastVec = getVibeVector(last.vibe || '');
+      const vibeSimToLast = cosineSimilarity(lastVec, currVibeVec);
+      const vibeSimToSeed = cosineSimilarity(vibeVector, currVibeVec);
+      const vibeScore = 0.4 * vibeSimToSeed + 0.6 * vibeSimToLast;
+
+      score = vibeScore;
+    } else {
+      score = 1; // Neutral score for first post-start selection
+    }
 
     if (score > bestScore) {
       best = event;
@@ -600,6 +606,7 @@ function getVibeVector(vibe) {
     break;
   }
 }
+
 
   return crawl;
 }
