@@ -666,17 +666,17 @@ document.getElementById('generateRoute').addEventListener('click', () => {
   });
 
 
-const start = filteredCandidates[Math.floor(Math.random() * filteredCandidates.length)];
-if (!start) {
-  alert('No valid starting point found.');
-  return;
-}
+const start = filtered[Math.floor(Math.random() * filtered.length)];
+  if (!start) {
+    alert('No valid starting point found.');
+    return;
+  }
 
-const crawlPoints = buildCrawlPath(start, filteredCandidates, getVibeVector, vibeVec, 5, crawlType);
-if (crawlPoints.length < 2) {
-  alert('Not enough crawl-worthy spots found.');
-  return;
-}
+  const crawlPoints = buildCrawlPath(start, filtered, getVibeVector, vibeVec, 5, crawlType);
+  if (crawlPoints.length < 2) {
+    alert('Not enough crawl-worthy spots found.');
+    return;
+  }
 
 
 selectedPoints = [];
