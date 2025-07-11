@@ -301,11 +301,10 @@ const enlargedIcon = L.icon({
 
 const isSharedCrawl = new URLSearchParams(window.location.search).has('crawl');
 
+const favorites = getFavorites();  
 fetch('events.json')
   .then(res => res.json())
   .then(events => {
-    const favorites = getFavorites();  // ✅ Move this inside so it's fresh
-
     events.forEach(ev => {
       const marker = L.marker([ev.lat, ev.lon], { icon: defaultIcon });
       marker.vibe = ev.vibe.toLowerCase();
@@ -316,21 +315,17 @@ fetch('events.json')
       marker.options.hours = ev.hours || [];
 
       if (favorites.some(f => f.toLowerCase() === ev.name.toLowerCase())) {
-        enlargeMarker(marker); // ✅ Show favorite visually
-      }
-
+  enlargeMarker(marker); 
+}
+      
       marker.on('click', () => {
         resetAllEnlargedMarkers();
         enlargeMarker(marker);
         showDetails(ev, marker.getLatLng());
       });
 
-      allMarkers.push(marker); // ✅ Track for renderFavoritesPanel use
+      allMarkers.push(marker);
     });
-
-    renderFavoritesPanel(); // ✅ Populate panel once markers are ready
-  });
-
     
     if (isSharedCrawl) {
       parseSharedCrawl();
