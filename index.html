@@ -520,171 +520,197 @@ const neighborhoodCenters = {
 function getVibeVector(vibe) {
   const baseVibes = ['jazz', 'artsy', 'coffee', 'hip', 'date night', 'nightlife', 'hidden gem', 'wine', 'rooftop'];
   const vec = new Array(baseVibes.length).fill(0);
-  if (!vibe) return vec;
-  const vibeStr = vibe.toLowerCase();
+  const vibeStr = (vibe || '').toLowerCase();
+
   baseVibes.forEach((v, i) => {
     if (vibeStr.includes(v)) vec[i] = 1;
   });
+
   return vec;
 }
 
-// Utility: Compute distance in meters between two lat/lon points
-function getDistanceMeters(a, b) {
-  const toRad = deg => deg * (Math.PI / 180);
-  const R = 6371e3;
-  const dLat = toRad(b.lat - a.lat);
-  const dLon = toRad(b.lon - a.lon);
-  const lat1 = toRad(a.lat);
-  const lat2 = toRad(b.lat);
-  const x = dLon * Math.cos((lat1 + lat2) / 2);
-  const y = dLat;
-  return Math.sqrt(x * x + y * y) * R;
-}
+  function buildCrawlPath(start, events, getVibeVector, vibeVector, maxStops = 5, crawlType = 'classic') {
+  const toRadians = deg => deg * (Math.PI / 180);
+  const distanceBetween = (a, b) => {
+    const R = 6371e3;
+    const dLat = toRadians(b.lat - a.lat);
+    const dLon = toRadians(b.lon - a.lon);
+    const lat1 = toRadians(a.lat);
+    const lat2 = toRadians(b.lat);
+    const x = dLon * Math.cos((lat1 + lat2) / 2);
+    const y = dLat;
+    return Math.sqrt(x * x + y * y) * R;
+  };
 
-// Utility: Cosine similarity between two vectors
-function cosineSimilarity(a, b) {
-  const dot = a.reduce((sum, val, i) => sum + val * b[i], 0);
-  const normA = Math.sqrt(a.reduce((sum, val) => sum + val * val, 0));
-  const normB = Math.sqrt(b.reduce((sum, val) => sum + val * val, 0));
-  return normA && normB ? dot / (normA * normB) : 0;
-}
+  const cosineSimilarity = (a, b) => {
+    const dot = a.reduce((sum, val, i) => sum + val * b[i], 0);
+    const normA = Math.sqrt(a.reduce((sum, val) => sum + val * val, 0));
+    const normB = Math.sqrt(b.reduce((sum, val) => sum + val * val, 0));
+    return dot / (normA * normB || 1);
+  };
 
-// Core: Generate optimized crawl path
-function buildCrawlPath(start, events, getVibeVector, vibeVector, maxStops = 5, crawlType = 'classic') {
   const crawl = [start];
   const remaining = events.filter(e => e.name !== start.name && e.hours && isOpenNow(e.hours));
-  const durationLimits = { quick: 1.5, classic: 3, long: 5 };
+
+  const durationLimits = {
+    quick: 1.5,
+    classic: 3,
+    long: 5
+  };
+
   const maxDuration = durationLimits[crawlType] || 5;
   let currentDuration = start.duration || 0;
 
   while (crawl.length < maxStops && remaining.length > 0) {
-    const last = crawl[crawl.length - 1];
-    const maxDist = crawl.length === 1 ? 800 : 600;
-    let best = null;
-    let bestScore = -Infinity;
+  const last = crawl[crawl.length - 1];
+  let best = null;
+  let bestScore = -Infinity;
 
-    for (const event of remaining) {
-      if (!event.hours || !isOpenNow(event.hours)) continue;
-      const nextDuration = currentDuration + (event.duration || 0);
-      if (nextDuration > maxDuration) continue;
+  const maxDist = crawl.length === 1 ? 800 : 600;
 
-      const dist = getDistanceMeters(last, event);
-      if (dist > maxDist || dist < 30) continue;
+  for (const event of remaining) {
+    if (!event.hours || !isOpenNow(event.hours)) continue;
 
+    const nextDuration = currentDuration + (event.duration || 0);
+    if (nextDuration > maxDuration) continue;
+
+    const dist = distanceBetween(last, event);
+    if (dist > maxDist || dist < 30) continue;
+
+    let score = 0;
+
+    if (crawl.length > 1) {
       const currVibeVec = getVibeVector(event.vibe || '');
       const lastVec = getVibeVector(last.vibe || '');
       const vibeSimToLast = cosineSimilarity(lastVec, currVibeVec);
       const vibeSimToSeed = cosineSimilarity(vibeVector, currVibeVec);
       const vibeScore = 0.4 * vibeSimToSeed + 0.6 * vibeSimToLast;
-      const score = crawl.length === 1 ? 1 : vibeScore;
 
-      if (score > bestScore) {
-        best = event;
-        bestScore = score;
-      }
+      score = vibeScore;
+    } else {
+      score = 1; // Neutral score for first post-start selection
     }
 
-    if (best) {
-      crawl.push(best);
-      currentDuration += best.duration || 0;
-      const index = remaining.findIndex(e => e.name === best.name);
-      if (index > -1) remaining.splice(index, 1);
-    } else {
-      break;
+    if (score > bestScore) {
+      best = event;
+      bestScore = score;
     }
   }
-  return crawl;
+
+  if (best) {
+    crawl.push(best);
+    currentDuration += best.duration || 0;
+    const index = remaining.findIndex(e => e.name === best.name);
+    if (index > -1) remaining.splice(index, 1);
+  } else {
+    break;
+  }
 }
 
 
-// Event listener to generate crawl from UI selections
+  return crawl;
+}
+
 document.getElementById('generateRoute').addEventListener('click', () => {
   const neighborhood = document.getElementById('neighborhood-input').value.toLowerCase();
+  if (!neighborhood) {
+    alert('Please select a neighborhood.');
+    return;
+  }
+
   const center = neighborhoodCenters[neighborhood];
-  if (!neighborhood || !center) {
-    alert('Please select a valid neighborhood.');
+  if (!center) {
+    alert('Neighborhood center not found.');
     return;
   }
 
   const crawlType = document.getElementById('durationFilter').value;
-  const vibe = document.getElementById('vibeFilter').value.toLowerCase();
-  const vibeVec = getVibeVector(vibe);
+let minDuration = 0, maxDuration = Infinity;
 
-  const candidates = allMarkers.filter(marker => {
-    const markerLatLng = marker.getLatLng();
-    return center.distanceTo(markerLatLng) < 1000 && isOpenNow(marker.options.hours || []);
-  }).map(m => ({
-    name: m.name,
-    vibe: m.vibe,
-    lat: m.getLatLng().lat,
-    lon: m.getLatLng().lng,
-    duration: m.duration || 0,
-    hours: m.options.hours || [],
-    link: m.options.link || '#'
-  }));
+if (crawlType === 'quick') {
+  maxDuration = 1.5;
+} else if (crawlType === 'classic') {
+  minDuration = 1.5;
+  maxDuration = 3;
+} else if (crawlType === 'long') {
+  minDuration = 3;
+}
 
-  if (!candidates.length) {
+const candidates = allMarkers.filter(marker =>
+  center.distanceTo(marker.getLatLng()) < 1000 &&
+  isOpenNow(marker.options.hours || [])
+);
+
+  if (candidates.length < 1) {
     alert('No places found in this neighborhood.');
     return;
   }
 
-  const filtered = candidates.filter(c => {
-    const vec = getVibeVector(c.vibe);
-    const overlap = vibeVec.reduce((acc, v, i) => acc + (v && vec[i] ? 1 : 0), 0);
-    return overlap > 0 || !vibe;
-  });
+const vibe = document.getElementById('vibeFilter').value.toLowerCase();
+const vibeVec = getVibeVector(vibe);
+const filteredCandidates = candidates.map(m => ({
+  ...m,
+  lat: m.getLatLng().lat,
+  lon: m.getLatLng().lng
+})).filter(c => {
+  const vec = getVibeVector(c.vibe);
+  const overlap = vibeVec.reduce((acc, v, i) => acc + (v && vec[i] ? 1 : 0), 0);
+  return overlap > 0 || !vibe;  // Allow fallback matches
+});
 
-  if (!filtered.length) {
-    alert('No matching venues found after vibe filtering.');
-    return;
-  }
 
-  const start = filtered[Math.floor(Math.random() * filtered.length)];
-  const crawlPoints = buildCrawlPath(start, filtered, getVibeVector, vibeVec, 5, crawlType);
+const start = filteredCandidates[Math.floor(Math.random() * filteredCandidates.length)];
+if (!start) {
+  alert('No valid starting point found.');
+  return;
+}
 
-  if (crawlPoints.length < 2) {
-    alert('Not enough crawl-worthy spots found.');
-    return;
-  }
+const crawlPoints = buildCrawlPath(start, filteredCandidates, getVibeVector, vibeVec, 5, crawlType);
+if (crawlPoints.length < 2) {
+  alert('Not enough crawl-worthy spots found.');
+  return;
+}
 
-  selectedPoints = [];
-  resetAllEnlargedMarkers();
-  crawlPoints.forEach(p => {
-    selectedPoints.push(L.latLng(p.lat, p.lon));
-    enlargeMarker(findMarkerByLatLng({ lat: p.lat, lng: p.lon }));
-  });
-  updateRoute();
-  map.fitBounds(L.featureGroup(crawlPoints.map(p => L.marker([p.lat, p.lon]))).getBounds());
 
-  const details = document.getElementById('details');
-  const shareLink = generateShareURL(selectedPoints);
-  details.innerHTML = `<strong>Your Mini Crawl:</strong><ul>$
-    {crawlPoints.map((m, i) => `<li>${i + 1}. <a href="${m.link}" target="_blank">${m.name}</a></li>`).join('')}
-  </ul>
-  <button id="exportGooglePopup">Export Route to Google Maps</button>
-  <button id="copyLinkBtn">Copy Shareable Link</button>
-  <input id="shareLinkInput" type="text" readonly value="${shareLink}" style="width:100%; margin-top:5px;" />
-  <a id="smsShare" href="sms:?body=Check out this crawl: ${encodeURIComponent(shareLink)}" target="_blank">📲 Text This Crawl</a>
-  <button id="closeDetails">Close</button>`;
+selectedPoints = [];
+resetAllEnlargedMarkers();
 
-  details.style.display = 'block';
+crawlPoints.forEach(m => {
+  selectedPoints.push(m.getLatLng());
+  enlargeMarker(m);
+});
+
+updateRoute();
+map.fitBounds(L.featureGroup(crawlPoints).getBounds());
+
+const details = document.getElementById('details');
+const shareLink = generateShareURL(selectedPoints);
+
+details.innerHTML = `<strong>Your Mini Crawl:</strong><ul>${
+  crawlPoints.map(m => `<li>${m.name}</li>`).join('')
+}</ul>
+<button id="exportGooglePopup">Export Route to Google Maps</button>
+<button id="copyLinkBtn">Copy Shareable Link</button>
+<input id="shareLinkInput" type="text" readonly value="${shareLink}" style="width:100%; margin-top:5px;" />
+<a id="smsShare" href="sms:?body=Check out this crawl: ${encodeURIComponent(shareLink)}" target="_blank">📲 Text This Crawl</a>
+<button id="closeDetails">Close</button>`;
+
+details.style.display = 'block';
+
 
   document.getElementById('exportGooglePopup').addEventListener('click', () => {
+    const baseUrl = "https://www.google.com/maps/dir/";
     const path = selectedPoints.map(p => `${p.lat},${p.lng}`).join('/');
-    window.open(`https://www.google.com/maps/dir/${path}`, '_blank');
-  });
-
-  document.getElementById('copyLinkBtn').addEventListener('click', () => {
-    const input = document.getElementById('shareLinkInput');
-    input.select();
-    document.execCommand('copy');
-    alert('Link copied to clipboard!');
+    window.open(baseUrl + path, '_blank');
   });
 
   document.getElementById('closeDetails').addEventListener('click', () => {
     details.style.display = 'none';
   });
 });
+
+
+
 
 
 function addPointToRoute(latlng) {
