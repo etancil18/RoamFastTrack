@@ -301,6 +301,7 @@ const enlargedIcon = L.icon({
 
 const isSharedCrawl = new URLSearchParams(window.location.search).has('crawl');
 
+const favorites = getFavorites();  
 fetch('events.json')
   .then(res => res.json())
   .then(events => {
@@ -313,7 +314,10 @@ fetch('events.json')
       marker.options.link = ev.link;
       marker.options.hours = ev.hours || [];
 
-
+      if (favorites.includes(ev.name)) {
+  enlargeMarker(marker); 
+}
+      
       marker.on('click', () => {
         resetAllEnlargedMarkers();
         enlargeMarker(marker);
@@ -439,6 +443,7 @@ function showDetails(ev, latlng) {
     Status: ${statusText}<br>
     Today's Hours: ${todayHours}<br>
     <a href="${ev.link}" target="_blank">View More</a><br>
+    <button id="favoriteLocationBtn">❤️</button>
     <button id="addToRoute">Add to Route</button>
     <button id="exportGooglePopup">Export Route to Google Maps</button>
     <button id="closeDetails">Close</button>
@@ -447,6 +452,10 @@ function showDetails(ev, latlng) {
   `;
 
   details.style.display = 'block';
+
+  document.getElementById('favoriteLocationBtn').addEventListener('click', () => {
+  saveFavorite(ev.name);
+});
 
   document.getElementById('addToRoute').addEventListener('click', () => {
     addPointToRoute(latlng);
@@ -491,6 +500,20 @@ function findNearbySimilar(latlng, vibeText = '', radius = 350) {
   return matches.slice(0, 3);
 }
 
+function saveFavorite(name) {
+  const saved = JSON.parse(localStorage.getItem('favorites') || '[]');
+  if (!saved.includes(name)) {
+    saved.push(name);
+    localStorage.setItem('favorites', JSON.stringify(saved));
+    alert(`${name} added to favorites!`);
+  } else {
+    alert(`${name} already in favorites.`);
+  }
+}
+
+function getFavorites() {
+  return JSON.parse(localStorage.getItem('favorites') || '[]');
+}
 
 
 const neighborhoodCenters = {
@@ -516,6 +539,7 @@ const neighborhoodCenters = {
   "west village": L.latLng(40.7359, -74.0036),
   "williamsburg": L.latLng(40.7081, -73.9571)
 };
+
 
 document.getElementById('generateRoute').addEventListener('click', () => {
   const neighborhood = document.getElementById('neighborhood-input').value.toLowerCase();
