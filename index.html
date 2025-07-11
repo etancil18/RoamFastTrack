@@ -523,9 +523,45 @@ function getFavorites() {
 }
 
   function renderFavoritesPanel() {
-  const panel = document.getElementById('favorites-panel');
+  const panel = document.getElementById('favorites-panel-list');
   const favorites = getFavorites();
-  panel.innerHTML = '<h4>⭐ Favorites</h4>' + (favorites.length ? '<ul>' + favorites.map(f => `<li>${f}</li>`).join('') + '</ul>' : '<p>No favorites yet.</p>');
+  panel.innerHTML = '';
+
+  if (favorites.length === 0) {
+    const li = document.createElement('li');
+    li.textContent = 'No favorites yet';
+    panel.appendChild(li);
+  } else {
+    favorites.forEach(f => {
+      const li = document.createElement('li');
+      const span = document.createElement('span');
+      span.className = 'favorite-item';
+      span.dataset.name = f;
+      span.textContent = f;
+
+      const btn = document.createElement('button');
+      btn.textContent = '🗑️';
+      btn.dataset.remove = f;
+      btn.style.marginLeft = '4px';
+      btn.onclick = () => removeFavorite(f);
+
+      li.appendChild(span);
+      li.appendChild(btn);
+      panel.appendChild(li);
+    });
+  }
+
+  document.querySelectorAll('.favorite-item').forEach(item => {
+    item.onclick = () => {
+      const marker = allMarkers.find(m => m.name.toLowerCase() === item.dataset.name.toLowerCase());
+      if (marker) {
+        map.setView(marker.getLatLng(), 16);
+        resetAllEnlargedMarkers();
+        enlargeMarker(marker);
+        showDetails(marker, marker.getLatLng());
+      }
+    };
+  });
 }
 
 
