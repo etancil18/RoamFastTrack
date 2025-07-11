@@ -774,11 +774,6 @@ favDropdownWrapper.appendChild(favToggleBtn);
 favDropdownWrapper.appendChild(favPanel);
 clearRouteBtn.parentNode.insertBefore(favDropdownWrapper, clearRouteBtn.nextSibling);
     });
-  
-    document.getElementById('toggleFavorites').addEventListener('click', () => {
-  const panel = document.getElementById('favorites-panel');
-  panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
-});
  
 document.getElementById('removeLastPoint').addEventListener('click', () => {
   if (selectedPoints.length === 0) {
