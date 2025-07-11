@@ -321,7 +321,7 @@ fetch('events.json')
       marker.options.link = ev.link;
       marker.options.hours = ev.hours || [];
 
-      if (favorites.includes(ev.name)) {
+      if (favorites.some(f => f.toLowerCase() === ev.name.toLowerCase())) {
   enlargeMarker(marker); 
 }
       
