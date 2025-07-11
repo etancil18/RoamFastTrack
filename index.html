@@ -326,6 +326,9 @@ fetch('events.json')
 
       allMarkers.push(marker);
     });
+
+    renderFavoritesPanel();
+  });
     
     if (isSharedCrawl) {
       parseSharedCrawl();
