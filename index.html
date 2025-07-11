@@ -711,6 +711,39 @@ document.getElementById('clearRoute').addEventListener('click', () => {
   resetAllEnlargedMarkers();
 });
 
+  const clearRouteBtn = document.getElementById('clearRoute');
+const favDropdownWrapper = document.createElement('div');
+favDropdownWrapper.style.position = 'relative';
+favDropdownWrapper.style.display = 'inline-block';
+favDropdownWrapper.style.marginLeft = '6px';
+
+const favToggleBtn = document.createElement('button');
+favToggleBtn.textContent = 'My Favorites';
+favToggleBtn.style.padding = '5px';
+favToggleBtn.style.fontSize = '14px';
+favToggleBtn.onclick = () => {
+  const panel = document.getElementById('favorites-panel');
+  panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+};
+
+const favPanel = document.createElement('div');
+favPanel.id = 'favorites-panel';
+favPanel.style.display = 'none';
+favPanel.style.position = 'absolute';
+favPanel.style.top = '35px';
+favPanel.style.right = '0';
+favPanel.style.background = 'rgba(255,255,255,0.95)';
+favPanel.style.border = '1px solid #ccc';
+favPanel.style.padding = '10px';
+favPanel.style.borderRadius = '6px';
+favPanel.style.boxShadow = '0 2px 6px rgba(0,0,0,0.2)';
+favPanel.style.zIndex = '1001';
+favPanel.innerHTML = '<ul id="favorites-panel-list" style="margin: 0; padding-left: 20px;"></ul>';
+
+favDropdownWrapper.appendChild(favToggleBtn);
+favDropdownWrapper.appendChild(favPanel);
+clearRouteBtn.parentNode.insertBefore(favDropdownWrapper, clearRouteBtn.nextSibling);
+  
     document.getElementById('toggleFavorites').addEventListener('click', () => {
   const panel = document.getElementById('favorites-panel');
   panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
