@@ -509,13 +509,21 @@ function saveFavorite(name) {
   } else {
     alert(`${name} already in favorites.`);
   }
+  renderFavoritesPanel(); // Refresh dropdown after saving
+}
+
+function removeFavorite(name) {
+  let saved = JSON.parse(localStorage.getItem('favorites') || '[]');
+  saved = saved.filter(f => f !== name);
+  localStorage.setItem('favorites', JSON.stringify(saved));
+  renderFavoritesPanel(); // Refresh dropdown after removal
 }
 
 function getFavorites() {
   return JSON.parse(localStorage.getItem('favorites') || '[]');
 }
 
-  function renderFavoritesPanel() {
+function renderFavoritesPanel() {
   const panel = document.getElementById('favorites-panel-list');
   const favorites = getFavorites();
   panel.innerHTML = '';
@@ -556,7 +564,6 @@ function getFavorites() {
     };
   });
 }
-
 
 const neighborhoodCenters = {
   "alphabet city": L.latLng(40.7265, -73.9815),
