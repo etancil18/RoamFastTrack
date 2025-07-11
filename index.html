@@ -524,7 +524,7 @@ function getFavorites() {
 }
 
 function renderFavoritesPanel() {
-  const panel = document.getElementById('favorites-panel-list');
+  const panel = document.getElementById('favorites-modal-list');
   const favorites = getFavorites();
   panel.innerHTML = '';
 
@@ -539,12 +539,16 @@ function renderFavoritesPanel() {
       span.className = 'favorite-item';
       span.dataset.name = f;
       span.textContent = f;
+      span.style.cursor = 'pointer';
 
       const btn = document.createElement('button');
       btn.textContent = '🗑️';
       btn.dataset.remove = f;
       btn.style.marginLeft = '4px';
-      btn.onclick = () => removeFavorite(f);
+      btn.onclick = (e) => {
+        e.stopPropagation();
+        removeFavorite(f);
+      };
 
       li.appendChild(span);
       li.appendChild(btn);
@@ -560,6 +564,7 @@ function renderFavoritesPanel() {
         resetAllEnlargedMarkers();
         enlargeMarker(marker);
         showDetails(marker, marker.getLatLng());
+        document.getElementById('favorites-modal').style.display = 'none';
       }
     };
   });
@@ -747,40 +752,40 @@ document.getElementById('clearRoute').addEventListener('click', () => {
   resetAllEnlargedMarkers();
 });
 
-  window.addEventListener('DOMContentLoaded', () => {
-const clearRouteBtn = document.getElementById('clearRoute');
-const favDropdownWrapper = document.createElement('div');
-favDropdownWrapper.style.position = 'relative';
-favDropdownWrapper.style.display = 'inline-block';
-favDropdownWrapper.style.marginLeft = '6px';
+ // Modal Setup
+window.addEventListener('DOMContentLoaded', () => {
+  const modal = document.createElement('div');
+  modal.id = 'favorites-modal';
+  modal.style.display = 'none';
+  modal.style.position = 'fixed';
+  modal.style.top = '0';
+  modal.style.left = '0';
+  modal.style.width = '100%';
+  modal.style.height = '100%';
+  modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+  modal.style.zIndex = '2000';
+  modal.innerHTML = `
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 10px; max-width: 300px; width: 80%; max-height: 400px; overflow-y: auto;">
+      <h3>My Favorites</h3>
+      <ul id="favorites-modal-list" style="list-style: none; padding: 0;"></ul>
+      <button onclick="document.getElementById('favorites-modal').style.display='none'">Close</button>
+    </div>
+  `;
+  document.body.appendChild(modal);
 
-const favToggleBtn = document.createElement('button');
-favToggleBtn.textContent = 'My Favorites';
-favToggleBtn.style.padding = '5px';
-favToggleBtn.style.fontSize = '14px';
-favToggleBtn.onclick = () => {
-  const panel = document.getElementById('favorites-panel');
-  panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
-};
-
-const favPanel = document.createElement('div');
-favPanel.id = 'favorites-panel';
-favPanel.style.display = 'none';
-favPanel.style.position = 'absolute';
-favPanel.style.top = '35px';
-favPanel.style.right = '0';
-favPanel.style.background = 'rgba(255,255,255,0.95)';
-favPanel.style.border = '2px solid red';
-favPanel.style.padding = '10px';
-favPanel.style.borderRadius = '6px';
-favPanel.style.boxShadow = '0 2px 6px rgba(0,0,0,0.2)';
-favPanel.style.zIndex = '1001';
-favPanel.innerHTML = '<ul id="favorites-panel-list" style="margin: 0; padding-left: 20px;"></ul>';
-
-favDropdownWrapper.appendChild(favToggleBtn);
-favDropdownWrapper.appendChild(favPanel);
-clearRouteBtn.parentNode.insertBefore(favDropdownWrapper, clearRouteBtn.nextSibling);
-    });
+  const toggleBtn = document.createElement('button');
+  toggleBtn.textContent = 'My Favorites';
+  toggleBtn.style.padding = '5px';
+  toggleBtn.style.fontSize = '14px';
+  toggleBtn.style.position = 'absolute';
+  toggleBtn.style.top = '10px';
+  toggleBtn.style.right = '10px';
+  toggleBtn.onclick = () => {
+    document.getElementById('favorites-modal').style.display = 'block';
+    renderFavoritesPanel();
+  };
+  document.body.appendChild(toggleBtn);
+});
  
 document.getElementById('removeLastPoint').addEventListener('click', () => {
   if (selectedPoints.length === 0) {
