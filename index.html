@@ -773,18 +773,16 @@ window.addEventListener('DOMContentLoaded', () => {
   `;
   document.body.appendChild(modal);
 
+  const controls = document.querySelector('.controls');
   const toggleBtn = document.createElement('button');
   toggleBtn.textContent = 'My Favorites';
   toggleBtn.style.padding = '5px';
   toggleBtn.style.fontSize = '14px';
-  toggleBtn.style.position = 'absolute';
-  toggleBtn.style.top = '10px';
-  toggleBtn.style.right = '10px';
   toggleBtn.onclick = () => {
     document.getElementById('favorites-modal').style.display = 'block';
     renderFavoritesPanel();
   };
-  document.body.appendChild(toggleBtn);
+  controls.appendChild(toggleBtn);
 });
  
 document.getElementById('removeLastPoint').addEventListener('click', () => {
