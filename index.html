@@ -740,7 +740,8 @@ document.getElementById('clearRoute').addEventListener('click', () => {
   resetAllEnlargedMarkers();
 });
 
-  const clearRouteBtn = document.getElementById('clearRoute');
+  window.addEventListener('DOMContentLoaded', () => {
+const clearRouteBtn = document.getElementById('clearRoute');
 const favDropdownWrapper = document.createElement('div');
 favDropdownWrapper.style.position = 'relative';
 favDropdownWrapper.style.display = 'inline-block';
@@ -772,6 +773,7 @@ favPanel.innerHTML = '<ul id="favorites-panel-list" style="margin: 0; padding-le
 favDropdownWrapper.appendChild(favToggleBtn);
 favDropdownWrapper.appendChild(favPanel);
 clearRouteBtn.parentNode.insertBefore(favDropdownWrapper, clearRouteBtn.nextSibling);
+    });
   
     document.getElementById('toggleFavorites').addEventListener('click', () => {
   const panel = document.getElementById('favorites-panel');
