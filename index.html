@@ -590,7 +590,7 @@ function generateCrawlFromFavorite(startLatLng) {
   const center = startLatLng;
 
   const candidates = allMarkers.filter(marker => {
-    const isInRadius = center.distanceTo(marker.getLatLng()) < 1500;
+    const isInRadius = center.distanceTo(marker.getLatLng()) < 1000;
     const isOpen = isOpenNow(marker.options.hours || []);
     const vibeMatch = !vibeFilter || (marker.vibe && marker.vibe.includes(vibeFilter));
     const priceMatch = !priceFilter || (marker.price && marker.price.trim() === priceFilter);
