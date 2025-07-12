@@ -603,14 +603,17 @@ function generateCrawlFromFavorite(startLatLng) {
   }
 
   let totalDuration = 0;
-  const crawlPoints = [];
+  const crawlPoints = [startMarker];
+  const alreadyIncluded = new Set([startMarker.name]);
 
   for (let marker of candidates.sort(() => 0.5 - Math.random())) {
+    if (alreadyIncluded.has(marker.name)) continue;
     const dur = marker.duration || 0;
-    if (dur === 0 || crawlPoints.includes(marker)) continue;
+    if (dur === 0) continue;
     if (totalDuration + dur > 3) break;
     totalDuration += dur;
     crawlPoints.push(marker);
+    alreadyIncluded.add(marker.name);
     if (totalDuration >= 1.5) break;
   }
 
