@@ -620,10 +620,18 @@ if (crawlType === 'quick') {
   minDuration = 3;
 }
 
-const candidates = allMarkers.filter(marker =>
-  center.distanceTo(marker.getLatLng()) < 1500 &&
-  isOpenNow(marker.options.hours || [])
-);
+const vibeFilter = document.getElementById('vibeFilter').value.toLowerCase();
+    const priceFilter = document.getElementById('priceFilter').value.trim();
+
+    const candidates = allMarkers.filter(marker => {
+      const isInRadius = center.distanceTo(marker.getLatLng()) < 1500;
+      const isOpen = isOpenNow(marker.options.hours || []);
+
+      const vibeMatch = !vibeFilter || (marker.vibe && marker.vibe.includes(vibeFilter));
+      const priceMatch = !priceFilter || (marker.price && marker.price.trim() === priceFilter);
+
+      return isInRadius && isOpen && vibeMatch && priceMatch;
+    });
 
   if (candidates.length < 1) {
     alert('No places found in this neighborhood.');
