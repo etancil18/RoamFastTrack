@@ -549,7 +549,7 @@ function renderFavoritesPanel() {
         e.stopPropagation();
         const marker = allMarkers.find(m => m.name.toLowerCase() === f.toLowerCase());
         if (marker) {
-          generateCrawlFromFavorite(marker.getLatLng());
+          generateCrawlFromFavorite(marker);
           document.getElementById('favorites-modal').style.display = 'none';
         }
       };
