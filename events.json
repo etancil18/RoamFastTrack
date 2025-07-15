@@ -2211,13 +2211,13 @@
    "link": "https://www.instagram.com/thelotradio/?hl=en",
    "openNow": true,
    "hours": [
-   "Sunday ",
-   "Monday ",
-   "Tuesday ",
-   "Wednesday ",
-   "Thursday ",
-   "Friday ",
-   "Saturday "
+   "Sunday 10:00 AM-12:00AM",
+   "Monday 10:00 AM-12:00 AM",
+   "Tuesday 10:00 AM-12:00 AM",
+   "Wednesday 10:00 AM-12:00 AM",
+   "Thursday 10:00 AM-12:00 AM",
+   "Friday 10:00 AM-12:00 AM",
+   "Saturday 10:00 AM-12:00AM"
    ],
    "price": "$",
    "duration": 1
