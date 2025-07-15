@@ -8472,5 +8472,594 @@
     ],
     "price": "$$",
     "duration": 1.75
-  }
+  },
+  {
+      "name": "Bohemien Bar",
+      "vibe": "Cozy, Eclectic, Intimate, Casual Drinks, Bohemian, Neighborhood Hangout",
+      "lat": 40.69123245,
+      "lon": -73.99701044,
+      "link": "https://www.instagram.com/bohemienbar/",
+      "openNow": true,
+      "hours": [
+         "Sunday 4:00 PM–12:00 AM",
+         "Monday 5:00 PM–12:00 AM",
+         "Tuesday 5:00 PM–12:00 AM",
+         "Wednesday 5:00 PM–12:00 AM",
+         "Thursday 5:00 PM–1:00 AM",
+         "Friday 4:00 PM–2:00 AM",
+         "Saturday 4:00 PM–2:00 AM"
+      ],
+      "price": "$",
+      "duration": 1.5
+   },
+   {
+      "name": "Reservoir",
+      "vibe": "Casual, Trendy, Laid-back, Craft Beer, Cozy, Rustic",
+      "lat": 40.7331707,
+      "lon": -73.9936418,
+      "link": "https://www.instagram.com/reservoirny/",
+      "openNow": true,
+      "hours": [
+         "Sunday 11:00 AM–2:00 AM",
+         "Monday 12:00 PM–2:00 AM",
+         "Tuesday 12:00 PM–2:00 AM",
+         "Wednesday 12:00 PM–2:00 AM",
+         "Thursday 12:00 PM–2:00 AM",
+         "Friday 12:00 PM–2:00 AM",
+         "Saturday 11:00 AM–2:00 AM"
+      ],
+      "price": "$",
+      "duration": 1.5
+   },
+   {
+      "name": "The Skylark - Rooftop Bar",
+      "vibe": "Chic, Sophisticated, Panoramic Views, Upscale, Cocktail Lounge",
+      "lat": 40.7540102,
+      "lon": -73.9888897,
+      "link": "https://www.instagram.com/theskylarknyc/",
+      "openNow": true,
+      "hours": [
+         "Sunday Closed",
+         "Monday 5:00 PM–12:00 AM",
+         "Tuesday 5:00 PM–12:00 AM",
+         "Wednesday 5:00 PM–1:00 AM",
+         "Thursday 5:00 PM–1:00 AM",
+         "Friday 5:00 PM–1:00 AM",
+         "Saturday Closed"
+      ],
+      "price": "$$$",
+      "duration": 1.25
+   },
+   {
+      "name": "Iggy's",
+      "vibe": "Dive Bar, Relaxed, Casual, Live Music, Gritty Atmosphere",
+      "lat": 40.7711285,
+      "lon": -73.9564384,
+      "link": "https://www.instagram.com/iggysbarnyc/",
+      "openNow": true,
+      "hours": [
+         "Sunday 1:00 PM–4:00 AM",
+         "Monday 1:00 PM–4:00 AM",
+         "Tuesday 1:00 PM–4:00 AM",
+         "Wednesday 1:00 PM–4:00 AM",
+         "Thursday 1:00 PM–4:00 AM",
+         "Friday 1:00 PM–4:00 AM",
+         "Saturday 1:00 PM–4:00 AM"
+      ],
+      "price": "$",
+      "duration": 1.75
+   },
+   {
+      "name": "Space Karaoke Bar & Lounge | Koreatown NYC",
+      "vibe": "Lively, Karaoke, Party Vibe, Casual, Group-friendly, Energetic",
+      "lat": 40.7477981,
+      "lon": -73.9872728,
+      "link": "https://www.instagram.com/spacekaraokenyc/",
+      "openNow": true,
+      "hours": [
+         "Sunday 4:30 PM–3:00 AM",
+         "Monday 5:00 PM–3:00 AM",
+         "Tuesday 5:00 PM–3:00 AM",
+         "Wednesday 5:00 PM–3:00 AM",
+         "Thursday 5:00 PM–4:00 AM",
+         "Friday 5:00 PM–4:30 AM",
+         "Saturday 4:30 PM–4:30 AM"
+      ],
+      "price": "$",
+      "duration": 1.75
+   },
+   {
+      "name": "161 Lafayette",
+      "vibe": "Trendy, Vibrant, Sleek Design, Upscale Cocktails, Intimate, Stylish Crowd",
+      "lat": 40.7198136,
+      "lon": -73.9990736,
+      "link": "https://www.instagram.com/161lafayette/",
+      "openNow": true,
+      "hours": [
+         "Sunday 2:00 PM–12:00 AM",
+         "Monday 5:00 PM–12:00 AM",
+         "Tuesday 2:00 PM–2:00 AM",
+         "Wednesday 2:00 PM–2:00 AM",
+         "Thursday 2:00 PM–2:00 AM",
+         "Friday 2:00 PM–4:00 AM",
+         "Saturday 2:00 PM–4:00 AM"
+      ],
+      "price": "$",
+      "duration": 1.75
+   },
+   {
+      "name": "McSorley's Old Ale House",
+      "vibe": "Historic, Rustic, Irish Pub, Laid-back",
+      "lat": 40.7287612,
+      "lon": -73.9897021,
+      "link": "https://www.instagram.com/mcsorleysoldalehouse/",
+      "openNow": true,
+      "hours": [
+         "Sunday 12:00 PM–1:00 AM",
+         "Monday 11:00 AM–1:00 AM",
+         "Tuesday 11:00 AM–1:00 AM",
+         "Wednesday 11:00 AM–1:00 AM",
+         "Thursday 11:00 AM–1:00 AM",
+         "Friday 11:00 AM–1:00 AM",
+         "Saturday 11:00 AM–1:00 AM"
+      ],
+      "price": "$",
+      "duration": 1
+   },
+   {
+      "name": "Reforesters Laboratory",
+      "vibe": "Innovative, Eco-conscious, Casual, Neighborhood Cafe, Artisanal Coffee, Creative Space",
+      "lat": 40.7161422,
+      "lon": -73.9620296,
+      "link": "https://www.instagram.com/reforesters.io/",
+      "openNow": true,
+      "hours": [
+         "Sunday 8:00 AM–8:00 PM",
+         "Monday 8:00 AM–2:00 PM",
+         "Tuesday 8:00 AM–2:00 PM",
+         "Wednesday 8:00 AM–2:00 PM",
+         "Thursday 8:00 AM–8:00 PM",
+         "Friday 8:00 AM–8:00 PM",
+         "Saturday 8:00 AM–8:00 PM"
+      ],
+      "price": "$",
+      "duration": 0.5
+   },
+   {
+      "name": "Gelateria Gentile - Williamsburg",
+      "vibe": "Ice Cream, Gelato, Date Spot",
+      "lat": 40.7162118,
+      "lon": -73.9638223,
+      "link": "https://www.instagram.com/gelateria_gentile_ny/",
+      "openNow": true,
+      "hours": [
+         "Sunday 9:00 AM–12:00 AM",
+         "Monday 8:00 AM–12:00 AM",
+         "Tuesday 8:00 AM–12:00 AM",
+         "Wednesday 8:00 AM–12:00 AM",
+         "Thursday 8:00 AM–12:00 AM",
+         "Friday 8:00 AM–12:00 AM",
+         "Saturday 9:00 AM–12:00 AM"
+      ],
+      "price": "$",
+      "duration": 0.5
+   },
+   {
+      "name": "10 ft Single by Stella Dallas",
+      "vibe": "Vintage, Retro, Quirky, Thrift",
+      "lat": 40.7146109,
+      "lon": -73.9535933,
+      "link": "https://www.instagram.com/10ftsinglebystelladallas/",
+      "openNow": true,
+      "hours": [
+         "Sunday 12:00 PM–7:15 PM",
+         "Monday 12:00 PM–7:15 PM",
+         "Tuesday 12:00 PM–7:15 PM",
+         "Wednesday 12:00 PM–7:15 PM",
+         "Thursday 12:00 PM–7:15 PM",
+         "Friday 12:00 PM–7:15 PM",
+         "Saturday 12:00 PM–7:15 PM"
+      ],
+      "price": "$$",
+      "duration": 0.66
+   },
+   {
+      "name": "FourFiveSix",
+      "vibe": "Hip, Laid-back, Casual, Craft Cocktails, Modern Decor",
+      "lat": 40.7191201,
+      "lon": -73.9431975,
+      "link": "https://www.instagram.com/fourfivesixbkny/",
+      "openNow": true,
+      "hours": [
+         "Sunday 8:00 AM–2:00 AM",
+         "Monday 8:00 AM–4:00 PM",
+         "Tuesday 8:00 AM–2:00 AM",
+         "Wednesday 8:00 AM–2:00 AM",
+         "Thursday 8:00 AM–2:00 AM",
+         "Friday 8:00 AM–2:00 AM",
+         "Saturday 8:00 AM–2:00 AM"
+      ],
+      "price": "$",
+      "duration": 1.25
+   },
+   {
+      "name": "Birria-Landia",
+      "vibe": "Mexican Street Food, Tacos, Casual, Quick Bites, Late-night, Authentic",
+      "lat": 40.71398192,
+      "lon": -73.95204547,
+      "link": "https://www.instagram.com/birria_landia/",
+      "openNow": true,
+      "hours": [
+         "Sunday 1:00 PM–1:00 AM",
+         "Monday 4:00 PM–1:00 AM",
+         "Tuesday 4:00 PM–1:00 AM",
+         "Wednesday 4:00 PM–1:00 AM",
+         "Thursday 4:00 PM–1:00 AM",
+         "Friday 4:00 PM–1:00 AM",
+         "Saturday 1:00 PM–1:00 AM"
+      ],
+      "price": "$",
+      "duration": 0.75
+   },
+   {
+      "name": "The Commodore",
+      "vibe": "Fun, Dive Bar, Casual Hangout, Retro Feel, Lively",
+      "lat": 40.7139513,
+      "lon": -73.9558034,
+      "link": "https://www.instagram.com/thecommodorebars/",
+      "openNow": true,
+      "hours": [
+         "Sunday 11:00 AM–4:00 AM",
+         "Monday 4:00 PM–4:00 AM",
+         "Tuesday 4:00 PM–4:00 AM",
+         "Wednesday 4:00 PM–4:00 AM",
+         "Thursday 4:00 PM–4:00 AM",
+         "Friday 4:00 PM–4:00 AM",
+         "Saturday 11:00 AM–4:00 AM"
+      ],
+      "price": "$$",
+      "duration": 1.33
+   },
+   {
+      "name": "Roebling Sporting Club",
+      "vibe": "Sports Bar, Lively, Fun Atmosphere",
+      "lat": 40.7169763,
+      "lon": -73.9546566,
+      "link": "https://www.instagram.com/roeblingnyc/",
+      "openNow": true,
+      "hours": [
+         "Sunday 9:00 AM–1:00 AM",
+         "Monday 2:00 PM–1:00 AM",
+         "Tuesday 2:00 PM–1:00 AM",
+         "Wednesday 2:00 PM–1:00 AM",
+         "Thursday 2:00 PM–2:00 AM",
+         "Friday 2:00 PM–4:00 AM",
+         "Saturday 9:00 AM–2:00 AM"
+      ],
+      "price": "$$",
+      "duration": 1.5
+   },
+   {
+      "name": "Tabare Williamsburg",
+      "vibe": "Cozy, South American Flavors, Intimate, Lively, Dimly Lit",
+      "lat": 40.7129782,
+      "lon": -73.9589272,
+      "link": "https://www.instagram.com/tabarenyc/",
+      "openNow": true,
+      "hours": [
+         "Sunday 12:00 PM–11:00 PM",
+         "Monday 5:00 PM–11:00 PM",
+         "Tuesday 5:00 PM–11:00 PM",
+         "Wednesday 5:00 PM–11:00 PM",
+         "Thursday 5:00 PM–11:00 PM",
+         "Friday 5:00 PM–12:00 AM",
+         "Saturday 12:00 PM–12:00 AM"
+      ],
+      "price": "$$",
+      "duration": 1.5
+   },
+   {
+      "name": "Lavender Lake",
+      "vibe": "Chill, Neighborhood Bar, Outdoor Space, Cocktails, Laid-back, Eclectic Vibe",
+      "lat": 40.7107645,
+      "lon": -73.9663357,
+      "link": "https://www.instagram.com/lavenderlakebrooklyn/",
+      "openNow": true,
+      "hours": [
+         "Sunday 12:00 PM–10:00 PM",
+         "Monday Closed",
+         "Tuesday Closed",
+         "Wednesday 4:00 PM–12:00 AM",
+         "Thursday 4:00 PM–12:00 AM",
+         "Friday 4:00 PM–1:00 AM",
+         "Saturday 12:00 PM–1:00 AM"
+      ],
+      "price": "$$",
+      "duration": 1.5
+   },
+   {
+      "name": "TBA Brooklyn",
+      "vibe": "Hidden Gem, DJ, Dance, Nightlife, Cocktails",
+      "lat": 40.7111986,
+      "lon": -73.9663773,
+      "link": "https://www.instagram.com/tbabrooklyn/",
+      "openNow": true,
+      "hours": [
+         "Sunday 10:00 PM–4:00 AM",
+         "Monday Closed",
+         "Tuesday Closed",
+         "Wednesday 10:00 PM–4:00 AM",
+         "Thursday 10:00 PM–4:00 AM",
+         "Friday 10:00 PM–4:00 AM",
+         "Saturday 10:00 PM–4:00 AM"
+      ],
+      "price": "$$",
+      "duration": 2
+   },
+   {
+      "name": "Lucali",
+      "vibe": "Cozy, Casual, Wood-fired Pizza, Neighborhood Staple, Trendy",
+      "lat": 40.6818319,
+      "lon": -74.0003712,
+      "link": "https://www.instagram.com/lucali_bk/",
+      "openNow": true,
+      "hours": [
+         "Sunday 5:00 PM–11:00 PM",
+         "Monday 5:00 PM–11:00 PM",
+         "Tuesday Closed",
+         "Wednesday 5:00 PM–11:00 PM",
+         "Thursday 5:00 PM–11:00 PM",
+         "Friday 5:00 PM–11:00 PM",
+         "Saturday 5:00 PM–11:00 PM"
+      ],
+      "price": "$$",
+      "duration": 1.5
+   },
+   {
+      "name": "Steve's Authentic Key Lime Pie",
+      "vibe": "Family-owned, Nostalgic, Desserts, Classic Treat, Casual, Quirky",
+      "lat": 40.6777473,
+      "lon": -74.0182768,
+      "link": "https://www.instagram.com/stevesauthentic/",
+      "openNow": true,
+      "hours": [
+         "Sunday 11:00 AM–8:00 PM",
+         "Monday 12:00 PM–7:00 PM",
+         "Tuesday 12:00 PM–7:00 PM",
+         "Wednesday 12:00 PM–7:00 PM",
+         "Thursday 12:00 PM–7:00 PM",
+         "Friday 12:00 PM–8:00 PM",
+         "Saturday 11:00 AM–8:00 PM"
+      ],
+      "price": "$",
+      "duration": 0.75
+   },
+   {
+      "name": "On The 7 - Where Manhattan Meets LIC",
+      "vibe": "Relaxed, Live Music, Jazz, Oysters, Wine",
+      "lat": 40.74262675,
+      "lon": -73.95438051,
+      "link": "https://www.instagram.com/onthe7lic/",
+      "openNow": true,
+      "hours": [
+         "Sunday 5:00 PM–11:00 PM",
+         "Monday 5:00 PM–11:00 PM",
+         "Tuesday 5:00 PM–12:00 AM",
+         "Wednesday 5:00 PM–12:00 AM",
+         "Thursday 5:00 PM–12:00 AM",
+         "Friday 5:00 PM–1:00 AM",
+         "Saturday 6:00 PM–1:00 AM"
+      ],
+      "price": "$",
+      "duration": 1.5
+   },
+   {
+      "name": "56709",
+      "vibe": "Hidden Gem, Intimate, Artsy, Cocktails, Underground vibe, Japanese",
+      "lat": 40.7490013,
+      "lon": -73.9406662,
+      "link": "https://www.instagram.com/56709nyc/",
+      "openNow": true,
+      "hours": [
+         "Sunday 5:00 PM–12:00 AM",
+         "Monday Closed",
+         "Tuesday 6:00 PM–1:00 AM",
+         "Wednesday 6:00 PM–1:00 AM",
+         "Thursday 6:00 PM–1:00 AM",
+         "Friday 5:00 PM–1:00 AM",
+         "Saturday 5:00 PM–1:00 AM"
+      ],
+      "price": "$$",
+      "duration": 1.5
+   },
+   {
+      "name": "Lost in Paradise Rooftop",
+      "vibe": "Rooftop Lounge, Scenic Views, Tropical Vibe, Laid-back",
+      "lat": 40.751801,
+      "lon": -73.947672,
+      "link": "https://www.instagram.com/lostinparadiserooftop/",
+      "openNow": true,
+      "hours": [
+         "Sunday 1:00 PM–11:00 PM",
+         "Monday Closed",
+         "Tuesday 5:00 PM–11:00 PM",
+         "Wednesday 5:00 PM–11:00 PM",
+         "Thursday 5:00 PM–12:00 AM",
+         "Friday 5:00 PM–4:00 AM",
+         "Saturday 1:00 PM–4:00 PM; 5:00 PM–4:00 AM"
+      ],
+      "price": "$$",
+      "duration": 1.5
+   },
+   {
+      "name": "Anable Basin Sailing Bar & Grill",
+      "vibe": "Waterfront Bar, Laid-back, Outdoor Seating, Casual",
+      "lat": 40.7494671,
+      "lon": -73.9552271,
+      "link": "https://www.instagram.com/anablebasin/",
+      "openNow": true,
+      "hours": [
+         "Sunday 12:00 PM–11:00 PM",
+         "Monday 3:00 PM–11:00 PM",
+         "Tuesday 3:00 PM–11:00 PM",
+         "Wednesday 3:00 PM–11:00 PM",
+         "Thursday 3:00 PM–11:00 PM",
+         "Friday 3:00 PM–12:00 AM",
+         "Saturday 12:00 PM–12:00 AM"
+      ],
+      "price": "$$",
+      "duration": 1.5
+   },
+   {
+      "name": "The Gutter Bar LIC",
+      "vibe": "Dive Bar, Chill Vibe, Classic, Bowling, Active",
+      "lat": 40.7465899,
+      "lon": -73.9518102,
+      "link": "https://www.instagram.com/thegutterlic/?hl=en",
+      "openNow": true,
+      "hours": [
+         "Sunday 12:00 PM–2:00 AM",
+         "Monday 5:00 PM–2:00 AM",
+         "Tuesday 5:00 PM–2:00 AM",
+         "Wednesday 5:00 PM–2:00 AM",
+         "Thursday 5:00 PM–2:00 AM",
+         "Friday 2:00 PM–2:00 AM",
+         "Saturday 12:00 PM–2:00 AM"
+      ],
+      "price": "$$",
+      "duration": 1.75
+   },
+   {
+      "name": "LIC Bar",
+      "vibe": "Relaxed, Neighborhood Bar, Casual Drinks, Outdoor seating",
+      "lat": 40.7470196,
+      "lon": -73.9528397,
+      "link": "https://www.instagram.com/lic_bar/?hl=en",
+      "openNow": true,
+      "hours": [
+         "Sunday 1:00 PM–2:00 AM",
+         "Monday 4:00 PM–2:00 AM",
+         "Tuesday 4:00 PM–2:00 AM",
+         "Wednesday 4:00 PM–2:00 AM",
+         "Thursday 4:00 PM–2:00 AM",
+         "Friday 4:00 PM–4:00 AM",
+         "Saturday 1:00 PM–4:00 AM"
+      ],
+      "price": "$",
+      "duration": 1.25
+   },
+   {
+      "name": "Darling",
+      "vibe": "Upscale, Rooftop Bar, Glamorous, Sophisticated Cocktails, Scenic Views, Trendy",
+      "lat": 40.764621,
+      "lon": -73.9753353,
+      "link": "https://www.instagram.com/darlingrooftop/",
+      "openNow": true,
+      "hours": [
+         "Sunday Closed",
+         "Monday Closed",
+         "Tuesday 5:00 PM–12:00 AM",
+         "Wednesday 5:00 PM–12:00 AM",
+         "Thursday 5:00 PM–12:00 AM",
+         "Friday 5:00 PM–1:00 AM",
+         "Saturday 5:00 PM–1:00 AM"
+      ],
+      "price": "$$$",
+      "duration": 1.5
+   },
+   {
+      "name": "Brooklyn Farmacy & Soda Fountain",
+      "vibe": "Nostalgic, Vintage, Family-friendly, Ice Cream, Retro Diner, Charming",
+      "lat": 40.6840022,
+      "lon": -73.9993095,
+      "link": "https://www.instagram.com/brooklynfarmacy/",
+      "openNow": true,
+      "hours": [
+         "Sunday 1:00 PM–10:00 PM",
+         "Monday 2:00 PM–10:00 PM",
+         "Tuesday 2:00 PM–10:00 PM",
+         "Wednesday 2:00 PM–10:00 PM",
+         "Thursday 2:00 PM–10:00 PM",
+         "Friday 2:00 PM–10:00 PM",
+         "Saturday 1:00 PM–10:00 PM"
+      ],
+      "price": "$",
+      "duration": 0.75
+   },
+   {
+      "name": "Turbo Pizza",
+      "vibe": "Casual, Quirky, Late-night Pizza, Pool Table, Vibrant, Neighborhood Gem",
+      "lat": 40.70245015,
+      "lon": -73.92070438,
+      "link": "https://www.instagram.com/turbopizzabar/",
+      "openNow": true,
+      "hours": [
+         "Sunday 4:00 PM–12:00 AM",
+         "Monday Closed",
+         "Tuesday 4:00 PM–12:00 AM",
+         "Wednesday 4:00 PM–12:00 AM",
+         "Thursday 4:00 PM–12:00 AM",
+         "Friday 4:00 PM–12:00 AM",
+         "Saturday 4:00 PM–12:00 AM"
+      ],
+      "price": "$",
+      "duration": 1.5
+   },
+   {
+      "name": "O'Hanlon's",
+      "vibe": "Dive bar, Sports Bar, Relaxed, Irish Pub",
+      "lat": 40.7317717,
+      "lon": -73.98283928,
+      "link": "https://www.instagram.com/ohanlonsbarnyc/",
+      "openNow": true,
+      "hours": [
+         "Sunday 9:00 AM–4:00 AM",
+         "Monday 9:00 AM–4:00 AM",
+         "Tuesday 9:00 AM–4:00 AM",
+         "Wednesday 9:00 AM–4:00 AM",
+         "Thursday 9:00 AM–4:00 AM",
+         "Friday 9:00 AM–4:00 AM",
+         "Saturday 9:00 AM–4:00 AM"
+      ],
+      "price": "$",
+      "duration": 1.66
+   },
+   {
+      "name": "Legends",
+      "vibe": "Sports Bar, Lively, Classic, Casual, High-energy",
+      "lat": 40.7479631,
+      "lon": -73.9857839,
+      "link": "https://www.instagram.com/legendsnyc/",
+      "openNow": true,
+      "hours": [
+         "Sunday 9:00 AM–11:00 PM",
+         "Monday 9:00 AM–4:00 AM",
+         "Tuesday 9:00 AM–4:00 AM",
+         "Wednesday 9:00 AM–4:00 AM",
+         "Thursday 9:00 AM–4:00 AM",
+         "Friday 9:00 AM–4:00 AM",
+         "Saturday 9:00 AM–4:00 AM"
+      ],
+      "price": "$$",
+      "duration": 1.66
+   },
+   {
+      "name": "Huuma",
+      "vibe": "Upscale, Cozy, Intimate, Craft Cocktails, Trendy, Sleek Design, Bao",
+      "lat": 40.7178259,
+      "lon": -73.9979942,
+      "link": "https://www.instagram.com/huuma_nyc/",
+      "openNow": true,
+      "hours": [
+         "Sunday 4:00 PM–11:00 PM",
+         "Monday 4:00 PM–11:00 PM",
+         "Tuesday 4:00 PM–11:00 PM",
+         "Wednesday 4:00 PM–11:00 PM",
+         "Thursday 4:00 PM–12:00 AM",
+         "Friday 4:00 PM–12:00 AM",
+         "Saturday 4:00 PM–12:00 AM"
+      ],
+      "price": "$$",
+      "duration": 1.5
+   }
 ]
