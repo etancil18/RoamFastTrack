@@ -9061,5 +9061,651 @@
       ],
       "price": "$$",
       "duration": 1.5
-   }
+   },
+   {
+    "name": "Little Island",
+    "vibe": "Waterfront, Trendy, Outdoor, Casual Dining, Public Space",
+    "lat": 40.73393933,
+    "lon": -74.00492971,
+    "link": "https://www.instagram.com/littleislandnyc/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 6:00 AM–12:00 AM",
+      "Monday 6:00 AM–12:00 AM",
+      "Tuesday 6:00 AM–12:00 AM",
+      "Wednesday 6:00 AM–12:00 AM",
+      "Thursday 6:00 AM–12:00 AM",
+      "Friday 6:00 AM–12:00 AM",
+      "Saturday 6:00 AM–12:00 AM"
+    ],
+    "price": "$",
+    "duration": 2
+  },
+  {
+    "name": "Domino Park",
+    "vibe": "Outdoor, Relaxed, Street Food, Garden, Casual, Volleyball",
+    "lat": 40.71662833,
+    "lon": -73.96650733,
+    "link": "https://www.instagram.com/dominopark/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 6:00 AM–11:00 PM",
+      "Monday 6:00 AM–11:00 PM",
+      "Tuesday 6:00 AM–11:00 PM",
+      "Wednesday 6:00 AM–11:00 PM",
+      "Thursday 6:00 AM–11:00 PM",
+      "Friday 6:00 AM–11:00 PM",
+      "Saturday 6:00 AM–11:00 PM"
+    ],
+    "price": "$",
+    "duration": 2
+  },
+  {
+    "name": "Harriet's Rooftop",
+    "vibe": "Rooftop, Sophisticated, Cocktails, Scenic Views",
+    "lat": 40.7024228,
+    "lon": -73.9955097,
+    "link": "https://www.instagram.com/harrietsbk/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 11:00 AM–11:00 PM",
+      "Monday 11:00 AM–11:00 PM",
+      "Tuesday 11:00 AM–11:00 PM",
+      "Wednesday 11:00 AM–11:00 PM",
+      "Thursday 11:00 AM–11:00 PM",
+      "Friday 11:00 AM–11:00 PM",
+      "Saturday 11:00 AM–11:00 PM"
+    ],
+    "price": "$$$$",
+    "duration": 3.5
+  },
+  {
+    "name": "Brooklyn Crab",
+    "vibe": "Seafood, Waterfront, Family-friendly, Fun",
+    "lat": 40.6753603,
+    "lon": -74.0165403,
+    "link": "https://www.instagram.com/brooklyn_crab/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 12:00 PM–10:00 PM",
+      "Monday 12:00 PM–10:00 PM",
+      "Tuesday 12:00 PM–10:00 PM",
+      "Wednesday 12:00 PM–10:00 PM",
+      "Thursday 12:00 PM–10:00 PM",
+      "Friday 12:00 PM–11:00 PM",
+      "Saturday 12:00 PM–11:00 PM"
+    ],
+    "price": "$$",
+    "duration": 3
+  },
+  {
+    "name": "All Blues",
+    "vibe": "Trendy, Stylish, Cocktail Lounge, Classy, Dimly Lit",
+    "lat": 40.7178766,
+    "lon": -74.0015815,
+    "link": "https://www.instagram.com/allbluesnyc/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday Closed",
+      "Monday Closed",
+      "Tuesday 6:00 PM–12:00 AM",
+      "Wednesday 6:00 PM–12:00 AM",
+      "Thursday 6:00 PM–12:00 AM",
+      "Friday 6:00 PM–2:00 AM",
+      "Saturday 6:00 PM–2:00 AM"
+    ],
+    "price": "$$",
+    "duration": 3
+  },
+  {
+    "name": "TIME AGAIN",
+    "vibe": "Hidden Gem, Speakeasy, Intimate, Cozy, Cocktail Bar",
+    "lat": 40.7156747,
+    "lon": -73.9940649,
+    "link": "https://www.instagram.com/timeagainbar/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 2:00 PM–2:00 AM",
+      "Monday 5:00 PM–2:00 AM",
+      "Tuesday 5:00 PM–2:00 AM",
+      "Wednesday 5:00 PM–2:00 AM",
+      "Thursday 5:00 PM–2:00 AM",
+      "Friday 5:00 PM–2:00 AM",
+      "Saturday 2:00 PM–2:00 AM"
+    ],
+    "price": "$",
+    "duration": 2
+  },
+  {
+    "name": "Undercote",
+    "vibe": "Upscale, Sophisticated, Cocktail Lounge, Relaxed, Cozy",
+    "lat": 40.7412149,
+    "lon": -73.9913162,
+    "link": "https://www.instagram.com/undercote/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday Closed",
+      "Monday 5:00 PM–1:00 AM",
+      "Tuesday 5:00 PM–1:00 AM",
+      "Wednesday 5:00 PM–1:00 AM",
+      "Thursday 5:00 PM–2:00 AM",
+      "Friday 5:00 PM–2:00 AM",
+      "Saturday 5:00 PM–2:00 AM"
+    ],
+    "price": "$$$",
+    "duration": 2.5
+  },
+  {
+    "name": "Barely Disfigured",
+    "vibe": "Artisanal, Quirky, Casual, Creative Space, Laid-back",
+    "lat": 40.6830816,
+    "lon": -73.9927916,
+    "link": "https://www.instagram.com/barelydisfigured/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 5:00 PM–11:30 PM",
+      "Monday 5:00 PM–11:30 PM",
+      "Tuesday 5:00 PM–11:30 PM",
+      "Wednesday 5:00 PM–11:30 PM",
+      "Thursday 5:00 PM–12:00 AM",
+      "Friday 4:00 PM–1:30 AM",
+      "Saturday 4:00 PM–1:30 AM"
+    ],
+    "price": "$$",
+    "duration": 2
+  },
+  {
+    "name": "Bar Valentina",
+    "vibe": "Cozy, Intimate, Stylish, Hidden Gem, Dimly Lit",
+    "lat": 40.7180749,
+    "lon": -73.9903709,
+    "link": "https://www.instagram.com/barvalentinanyc/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 2:00 PM–1:00 AM",
+      "Monday 4:00 PM–1:00 AM",
+      "Tuesday 4:00 PM–1:00 AM",
+      "Wednesday 4:00 PM–1:00 AM",
+      "Thursday 4:00 PM–2:00 AM",
+      "Friday 4:00 PM–2:00 AM",
+      "Saturday 2:00 PM–2:00 AM"
+    ],
+    "price": "$$",
+    "duration": 2.5
+  },
+  {
+    "name": "Bar Oliver",
+    "vibe": "Upscale, Trendy, Cocktail Bar, Cozy, Sophisticated",
+    "lat": 40.7130612,
+    "lon": -73.9982064,
+    "link": "https://www.instagram.com/barolivernyc/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 8:00 AM–11:00 PM",
+      "Monday 8:00 AM–11:00 PM",
+      "Tuesday 8:00 AM–11:00 PM",
+      "Wednesday 8:00 AM–11:00 PM",
+      "Thursday 8:00 AM–12:00 AM",
+      "Friday 8:00 AM–12:00 AM",
+      "Saturday 8:00 AM–12:00 AM"
+    ],
+    "price": "$$$",
+    "duration": 2.5
+  },
+  {
+    "name": "Kettl Tea - Greenpoint",
+    "vibe": "Calm, Zen, Minimalist, Relaxing, Intimate",
+    "lat": 40.7296813,
+    "lon": -73.9581821,
+    "link": "https://www.instagram.com/kettltea/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 9:00 AM–7:00 PM",
+      "Monday 9:00 AM–7:00 PM",
+      "Tuesday 9:00 AM–7:00 PM",
+      "Wednesday 9:00 AM–7:00 PM",
+      "Thursday 9:00 AM–7:00 PM",
+      "Friday 9:00 AM–8:00 PM",
+      "Saturday 9:00 AM–8:00 PM"
+    ],
+    "price": "$",
+    "duration": 1
+  },
+  {
+    "name": "Little Rascal",
+    "vibe": "Cozy, Vintage, Relaxed, Trendy, Intimate",
+    "lat": 40.7208393,
+    "lon": -73.9950056,
+    "link": "https://www.instagram.com/littlerascalnolita/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 12:00 PM–12:00 AM",
+      "Monday 4:00 PM–12:00 AM",
+      "Tuesday 4:00 PM–12:00 AM",
+      "Wednesday 4:00 PM–12:00 AM",
+      "Thursday 4:00 PM–12:00 AM",
+      "Friday 4:00 PM–1:00 AM",
+      "Saturday 12:00 PM–1:00 AM"
+    ],
+    "price": "$$",
+    "duration": 2.5
+  },
+  {
+    "name": "Dae",
+    "vibe": "Hip, Casual, Laid-back, Neighborhood Spot, Creative",
+    "lat": 40.6785539,
+    "lon": -73.9958031,
+    "link": "https://www.instagram.com/dae.bk.newyork/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 10:00 AM–10:00 PM",
+      "Monday Closed",
+      "Tuesday Closed",
+      "Wednesday 10:00 AM–10:00 PM",
+      "Thursday 10:00 AM–10:00 PM",
+      "Friday 10:00 AM–11:00 PM",
+      "Saturday 10:00 AM–11:00 PM"
+    ],
+    "price": "$$",
+    "duration": 2.5
+  },
+  {
+    "name": "Rude Mouth",
+    "vibe": "Casual, Artsy, Loud, Fun, Playful",
+    "lat": 40.714274,
+    "lon": -73.95596384,
+    "link": "https://www.instagram.com/rudemouthbk/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 3:00 PM–10:00 PM",
+      "Monday 5:00 PM–10:00 PM",
+      "Tuesday 5:00 PM–12:00 AM",
+      "Wednesday 5:00 PM–12:00 AM",
+      "Thursday 5:00 PM–12:00 AM",
+      "Friday 5:00 PM–12:00 AM",
+      "Saturday 3:00 PM–12:00 AM"
+    ],
+    "price": "$$",
+    "duration": 2
+  },
+  {
+    "name": "Swiss Institute",
+    "vibe": "Artistic, Creative, Cultural Hub, Contemporary, Cool",
+    "lat": 40.7284048,
+    "lon": -73.9875749,
+    "link": "https://www.instagram.com/swissinstitute/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 12:00 PM–6:00 PM",
+      "Monday Closed",
+      "Tuesday Closed",
+      "Wednesday 2:00 PM–8:00 PM",
+      "Thursday 2:00 PM–8:00 PM",
+      "Friday 2:00 PM–8:00 PM",
+      "Saturday 12:00 PM–8:00 PM"
+    ],
+    "price": "$",
+    "duration": 3
+  },
+  {
+    "name": "San Tokki Studio (Appt. only)",
+    "vibe": "Creative, Plants, Floral",
+    "lat": 40.676984,
+    "lon": -74.01425526,
+    "link": "https://www.instagram.com/santokkistudio/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday Closed",
+      "Monday Closed",
+      "Tuesday Closed",
+      "Wednesday Closed",
+      "Thursday Closed",
+      "Friday Closed",
+      "Saturday Closed"
+    ],
+    "price": "",
+    "duration": 0.75
+  },
+  {
+    "name": "THE LAST CALL",
+    "vibe": "Cozy, Casual, Hidden Gem, Lively, Neighborhood Bar",
+    "lat": 40.7110998,
+    "lon": -73.9483032,
+    "link": "https://www.instagram.com/thelastcallbrooklyn/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 4:00 PM–12:00 AM",
+      "Monday Closed",
+      "Tuesday 4:00 PM–12:00 AM",
+      "Wednesday 4:00 PM–12:00 AM",
+      "Thursday 4:00 PM–12:00 AM",
+      "Friday 4:00 PM–12:00 AM",
+      "Saturday 2:00 PM–12:00 AM"
+    ],
+    "price": "$",
+    "duration": 2
+  },
+  {
+    "name": "Double Chicken Please",
+    "vibe": "Casual, Quirky, Late-night, Fun, Interactive, Cocktails",
+    "lat": 40.7195842,
+    "lon": -73.9904912,
+    "link": "https://www.instagram.com/doublechickenpleasenyc/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 5:00 PM–12:00 AM",
+      "Monday Closed",
+      "Tuesday 5:00 PM–1:00 AM",
+      "Wednesday 5:00 PM–1:00 AM",
+      "Thursday 5:00 PM–1:00 AM",
+      "Friday 5:00 PM–1:30 AM",
+      "Saturday 5:00 PM–1:30 AM"
+    ],
+    "price": "$$$",
+    "duration": 2.5
+  },
+  {
+    "name": "Cubbyhole",
+    "vibe": "LGBTQ+ Friendly, Cozy, Casual, Intimate, Fun, Live Music, LGTBQ+",
+    "lat": 40.7376427,
+    "lon": -74.0037475,
+    "link": "https://www.instagram.com/cubbyholebar/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 2:00 PM–2:00 AM",
+      "Monday 4:00 PM–2:00 AM",
+      "Tuesday 4:00 PM–2:00 AM",
+      "Wednesday 4:00 PM–2:00 AM",
+      "Thursday 4:00 PM–2:00 AM",
+      "Friday 4:00 PM–4:00 AM",
+      "Saturday 2:00 PM–4:00 AM"
+    ],
+    "price": "$",
+    "duration": 3
+  },
+  {
+    "name": "Julius'",
+    "vibe": "Sports Bar, Chill, Classic, Dive Bar, Historic, LGTBQ+",
+    "lat": 40.7345416,
+    "lon": -74.0015246,
+    "link": "https://www.instagram.com/juliusbarnyc/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 12:00 PM–2:00 AM",
+      "Monday 4:00 PM–2:00 AM",
+      "Tuesday 4:00 PM–2:00 AM",
+      "Wednesday 4:00 PM–2:00 AM",
+      "Thursday 4:00 PM–2:00 AM",
+      "Friday 4:00 PM–4:00 AM",
+      "Saturday 12:00 PM–4:00 AM"
+    ],
+    "price": "$",
+    "duration": 3
+  },
+  {
+    "name": "The Cobra Club",
+    "vibe": "Trendy, Neighborhood Bar, Live Music, Cocktail Bar, Vibrant",
+    "lat": 40.7067043,
+    "lon": -73.9235017,
+    "link": "https://www.instagram.com/cobraclubbk/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 3:00 PM–12:00 AM",
+      "Monday 3:00 PM–12:00 AM",
+      "Tuesday 3:00 PM–12:00 AM",
+      "Wednesday 3:00 PM–12:00 AM",
+      "Thursday 3:00 PM–12:00 AM",
+      "Friday 3:00 PM–12:00 AM",
+      "Saturday 3:00 PM–12:00 AM"
+    ],
+    "price": "$",
+    "duration": 2
+  },
+  {
+    "name": "ANIMAL",
+    "vibe": "Casual, Laid-back, Fun, Neighborhood Bar, Vintage, LGTBQ+",
+    "lat": 40.71870937,
+    "lon": -73.94714459,
+    "link": "https://www.instagram.com/animal.nyc/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 2:00 PM–4:00 AM",
+      "Monday 4:00 PM–4:00 AM",
+      "Tuesday 4:00 PM–4:00 AM",
+      "Wednesday 4:00 PM–4:00 AM",
+      "Thursday 4:00 PM–4:00 AM",
+      "Friday 4:00 PM–4:00 AM",
+      "Saturday 2:00 PM–4:00 AM"
+    ],
+    "price": "$$",
+    "duration": 3.5
+  },
+  {
+    "name": "Hidden Lane Bar",
+    "vibe": "Cozy, Intimate, Hidden Gem, Secret Bar, Speakeasy, Unique",
+    "lat": 40.7345947,
+    "lon": -73.98766965,
+    "link": "https://www.instagram.com/hiddenlanenyc/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday Closed",
+      "Monday 5:00 PM–12:00 AM",
+      "Tuesday 5:00 PM–12:00 AM",
+      "Wednesday 5:00 PM–12:00 AM",
+      "Thursday 5:00 PM–12:00 AM",
+      "Friday 5:00 PM–2:00 AM",
+      "Saturday 5:00 PM–2:00 AM"
+    ],
+    "price": "$$",
+    "duration": 2.5
+  },
+  {
+    "name": "Botanica at Widow Jane",
+    "vibe": "Tropical Vibe, Relaxing, Hidden Gem, Creative, Cocktails",
+    "lat": 40.677249,
+    "lon": -74.0153893,
+    "link": "https://www.instagram.com/botanicawidowjane/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 2:00 PM–10:00 PM",
+      "Monday Closed",
+      "Tuesday Closed",
+      "Wednesday Closed",
+      "Thursday 4:00 PM–10:00 PM",
+      "Friday 4:00 PM–10:00 PM",
+      "Saturday 2:00 PM–10:00 PM"
+    ],
+    "price": "$$",
+    "duration": 2
+  },
+  {
+    "name": "La Bicyclette Bakery",
+    "vibe": "Cozy, Bakery, Delicious, Sweet, Charming, Retro",
+    "lat": 40.7143881,
+    "lon": -73.95913,
+    "link": "https://www.instagram.com/labicyclettebakery_nyc/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 8:00 AM–1:00 PM",
+      "Monday Closed",
+      "Tuesday 8:00 AM–1:00 PM",
+      "Wednesday 8:00 AM–1:00 PM",
+      "Thursday 8:00 AM–1:00 PM",
+      "Friday 8:00 AM–1:00 PM",
+      "Saturday 8:00 AM–1:00 PM"
+    ],
+    "price": "$",
+    "duration": 0.75
+  },
+  {
+    "name": "Elizabeth Street Garden",
+    "vibe": "Outdoors, Garden, Relaxing, Scenic, Tranquil, Greenery",
+    "lat": 40.720326,
+    "lon": -73.995084,
+    "link": "https://www.instagram.com/elizabethstreetgarden/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 8:00 AM–8:00 PM",
+      "Monday 8:00 AM–8:00 PM",
+      "Tuesday 8:00 AM–8:00 PM",
+      "Wednesday 8:00 AM–8:00 PM",
+      "Thursday 8:00 AM–8:00 PM",
+      "Friday 8:00 AM–8:00 PM",
+      "Saturday 8:00 AM–8:00 PM"
+    ],
+    "price": "$",
+    "duration": 1.25
+  },
+  {
+    "name": "Brooklyn Botanic Garden",
+    "vibe": "Tranquil, Natural, Scenic, Botanical, Relaxing",
+    "lat": 40.6676619,
+    "lon": -73.96362613,
+    "link": "https://www.instagram.com/brooklynbotanic/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 10:00 AM–6:00 PM",
+      "Monday Closed",
+      "Tuesday 10:00 AM–8:30 PM",
+      "Wednesday 10:00 AM–6:00 PM",
+      "Thursday 10:00 AM–8:30 PM",
+      "Friday 10:00 AM–6:00 PM",
+      "Saturday 10:00 AM–6:00 PM"
+    ],
+    "price": "$",
+    "duration": 3
+  },
+  {
+    "name": "Xanadu Roller Arts",
+    "vibe": "Unique, Fun, Active, Roller Skating, Artistic",
+    "lat": 40.7064509,
+    "lon": -73.92143211,
+    "link": "https://www.instagram.com/xanadu.nyc/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday Closed",
+      "Monday Closed",
+      "Tuesday Closed",
+      "Wednesday Closed",
+      "Thursday Closed",
+      "Friday Closed",
+      "Saturday Closed"
+    ],
+    "price": "$$",
+    "duration": 3
+  },
+  {
+    "name": "The Clocktower",
+    "vibe": "Upscale, Artsy, Elegant, Historic, Modern Design",
+    "lat": 40.7413262,
+    "lon": -73.9874695,
+    "link": "https://www.instagram.com/clocktowernyc/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 7:00 AM–10:30 AM; 11:30 AM–2:30 PM; 5:00 PM–10:00 PM",
+      "Monday 7:00 AM–10:30 AM; 5:00 PM–10:00 PM",
+      "Tuesday 7:00 AM–10:30 AM; 5:00 PM–10:00 PM",
+      "Wednesday 7:00 AM–10:30 AM; 5:00 PM–10:00 PM",
+      "Thursday 7:00 AM–10:30 AM; 5:00 PM–10:00 PM",
+      "Friday 7:00 AM–10:30 AM; 5:00 PM–10:00 PM",
+      "Saturday 7:00 AM–10:30 AM; 11:30 AM–2:30 PM; 5:00 PM–10:00 PM"
+    ],
+    "price": "$$$$",
+    "duration": 2
+  },
+  {
+    "name": "Little Dipper",
+    "vibe": "Cozy, Intimate, Cocktail Bar, Trendy, Casual",
+    "lat": 40.7482055,
+    "lon": -73.9912156,
+    "link": "https://www.instagram.com/littledippernyc/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday Closed",
+      "Monday Closed",
+      "Tuesday Closed",
+      "Wednesday Closed",
+      "Thursday 5:00 PM–2:00 AM",
+      "Friday 5:00 PM–2:00 AM",
+      "Saturday 5:00 PM–2:00 AM"
+    ],
+    "price": "$$",
+    "duration": 2.25
+  },
+  {
+    "name": "Bar Bonobo",
+    "vibe": "Cozy, Stylish, Trendy, Cocktail Bar, Relaxed",
+    "lat": 40.742976,
+    "lon": -73.9998997,
+    "link": "https://www.instagram.com/barbonobonyc/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 2:00 PM–4:00 AM",
+      "Monday 3:00 PM–4:00 AM",
+      "Tuesday 3:00 PM–4:00 AM",
+      "Wednesday 3:00 PM–4:00 AM",
+      "Thursday 3:00 PM–4:00 AM",
+      "Friday 3:00 PM–4:00 AM",
+      "Saturday 2:00 PM–4:00 AM"
+    ],
+    "price": "$$$",
+    "duration": 2
+  },
+  {
+    "name": "The Ripple Room",
+    "vibe": "Lively, Eclectic, Music, Cocktail Bar, Trendy",
+    "lat": 40.7204795,
+    "lon": -73.9937373,
+    "link": "https://www.instagram.com/therippleroomnyc/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 4:00 PM–2:00 AM",
+      "Monday 4:00 PM–2:00 AM",
+      "Tuesday 4:00 PM–2:00 AM",
+      "Wednesday 4:00 PM–2:00 AM",
+      "Thursday 4:00 PM–3:00 AM",
+      "Friday 4:00 PM–3:00 AM",
+      "Saturday 4:00 PM–3:00 AM"
+    ],
+    "price": "$$",
+    "duration": 2
+  },
+  {
+    "name": "Rockaway Brewing Company",
+    "vibe": "Craft Beer, Fun, Social, Brewery, Local",
+    "lat": 40.7471977,
+    "lon": -73.9549525,
+    "link": "https://www.instagram.com/rockawaybrewco/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 12:00 PM–9:00 PM",
+      "Monday 2:00 PM–10:00 PM",
+      "Tuesday 2:00 PM–10:00 PM",
+      "Wednesday 2:00 PM–10:00 PM",
+      "Thursday 2:00 PM–10:00 PM",
+      "Friday 12:00 PM–11:00 PM",
+      "Saturday 12:00 PM–11:00 PM"
+    ],
+    "price": "$",
+    "duration": 2
+  },
+  {
+    "name": "Fifth Hammer Brewing Company",
+    "vibe": "Craft Beer, Fun, Lively, Brewery, Neighborhood Spot",
+    "lat": 40.7464921,
+    "lon": -73.9515404,
+    "link": "https://www.instagram.com/fifthhammerbeer/?hl=en",
+    "openNow": true,
+    "hours": [
+      "Sunday 12:00 PM–11:00 PM",
+      "Monday 2:00 PM–10:00 PM",
+      "Tuesday 2:00 PM–11:00 PM",
+      "Wednesday 2:00 PM–11:00 PM",
+      "Thursday 2:00 PM–12:00 AM",
+      "Friday 12:00 PM–1:00 AM",
+      "Saturday 12:00 PM–1:00 AM"
+    ],
+    "price": "$",
+    "duration": 2
+  }
 ]
